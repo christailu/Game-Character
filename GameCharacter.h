@@ -1,8 +1,9 @@
 /***************************************************************/
 // Name : Christelle
 //Course : CS 355
-//Assigment 3
-//date : sept 1 2023
+//Assigment 5 
+
+//date: Sept 7 2023
 //program description:This program manages characters with various attributes such as name,
 //               max health, current health, attack points, and defense points.
 //                 The program allows characters to engage in battles, take damage,
@@ -14,6 +15,7 @@
 #ifndef GAMECHARACTER_H
 #define GAMECHARACTER_H
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 class GameCharacter{
@@ -29,22 +31,24 @@ class GameCharacter{
 		GameCharacter (string, int, int, int, int, bool);
 		
 		//getter method for each private member of the class
-		string get_name() const;
-		int get_maxHealth() const;
-		int get_healthPoints() const;
-		int get_attackPoints() const;
-		int get_defensePoints() const;
-		bool get_isAlive() const;
+		string getName() const;
+		int getMaxHealth() const;
+		int getHealthPoints() const;
+		int getAttackPoints() const;
+		int getDefensePoints() const;
+		bool getIsAlive() const;
 		
 		bool takeDamage(int);
 		int attack(GameCharacter&);
 		bool saveTofile(string&) const;
 		void loadFromFile(string& );
 		
+		void displayTimeSinceLastSave();
 		
 		//overloaded functions
 	    // Overloaded + operator to perform addition between  attributes
-	    friend GameCharacter operator+(const GameCharacter& , const GameCharacter& );
+	    friend GameCharacter operator+(const GameCharacter&, const GameCharacter& ) ;
+
 	
 	    // Overloaded > operator to compare
 	    friend bool operator>(const GameCharacter& , const GameCharacter& );
