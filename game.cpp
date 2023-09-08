@@ -1,8 +1,8 @@
 /***************************************************************/
 // Name : Christelle
 //Course : CS 355
-//Assigment 3
-//date : sept 1 2023
+//Assigment 5 
+//date : sept 7 2023
 //program description:This program manages characters with various attributes such as name,
 //               max health, current health, attack points, and defense points.
 //                 The program allows characters to engage in battles, take damage,
@@ -13,6 +13,7 @@
 //*****************************************************************/
 #include <iostream>
 #include <fstream>
+#include <ctime>
 #include "GameCharacter.h"
 
 using namespace std;
@@ -41,34 +42,34 @@ int main() {
     }
 
     // Simulate battles
-    cout << "First attack of "<<character1.get_name() << " to "<< character2.get_name()  << endl;
+    cout << "First attack of "<<character1.getName() << " to "<< character2.getName() << endl;
     int damage = character1.attack(character2);
-    cout << character1.get_name() <<" dealt " << damage << " points of damage to " <<character2.get_name()  << endl <<endl;
-    cout << "Second attack of "<<character1.get_name() << " to "<< character2.get_name() << endl;
+    cout << character1.getName() <<" dealt " << damage << " points of damage to " <<character2.getName() << endl <<endl;
+    cout << "Second attack of "<<character1.getName() << " to "<< character2.get_name() <<< endl;
     damage = character1.attack(character2);
-    cout << character1.get_name()  <<" dealt " << damage << " points of damage to " <<character2.get_name()   << endl <<endl;   
+    cout << character1.getName()  <<" dealt " << damage << " points of damage to " <<character2.getName()   << endl <<endl;   
 
-    cout << "First attack of "<<character2.get_name() << " to "<< character1.get_name() << endl;
+    cout << "First attack of "<<character2.getName() << " to "<< character1.getName() << endl;
     damage = character2.attack(character1);
-    cout << character2.get_name() <<" dealt " << damage << " points of damage to " <<character1.get_name()  << endl <<endl;
-    cout << "First attack of "<<character3.get_name() << " to "<< character2.get_name() << endl;
+    cout << character2.getName() <<" dealt " << damage << " points of damage to " <<character1.getName()  << endl <<endl;
+    cout << "First attack of "<<character3.getName() << " to "<< character2.getName() << endl;
     damage = character3.attack(character2);
-    cout << character3.get_name() <<" dealt " << damage << " points of damage to " <<character2.get_name()  << endl <<endl;  
+    cout << character3.getName() <<" dealt " << damage << " points of damage to " <<character2.getName()  << endl <<endl;  
     
-    cout << "First attack of "<<character1.get_name() << " to "<< character3.get_name() << endl;
+    cout << "First attack of "<<character1.getName() << " to "<< character3.getName() << endl;
     damage = character1.attack(character3);
-    cout << character1.get_name() <<" dealt " << damage << " points of damage to " <<character3.get_name()  << endl <<endl;
+    cout << character1.getName() <<" dealt " << damage << " points of damage to " <<character3.getName()  << endl <<endl;
     cout << "Second attack of "<<character1 << " to "<< character3 << endl;
     damage = character1.attack(character3);
-    cout << character1.get_name() <<" dealt " << damage << " points of damage to " <<character3.get_name()  << endl <<endl;      
+    cout << character1.getName() <<" dealt " << damage << " points of damage to " <<character3.getName()  << endl <<endl;      
 
     // Save battle simulation to file
     if (outFile.is_open()) {
         outFile << "Simulating battle between all three charaters" << endl;
-        outFile  << character1.get_name() <<" dealt " << damage << " points of damage to " <<character2.get_name()  << endl;
-        outFile  << character1.get_name() <<" dealt " << damage << " points of damage to " <<character3.get_name()  << endl;
-        outFile  << character2.get_name() <<" dealt " << damage << " points of damage to " <<character1.get_name()  << endl;
-        outFile  << character3.get_name() <<" dealt " << damage << " points of damage to " <<character3.get_name()  << endl;
+        outFile  << character1.getName() <<" dealt " << damage << " points of damage to " <<character2.getName()  << endl;
+        outFile  << character1.getName() <<" dealt " << damage << " points of damage to " <<character3.getName()  << endl;
+        outFile  << character2.getName() <<" dealt " << damage << " points of damage to " <<character1.getName()  << endl;
+        outFile  << character3.getName() <<" dealt " << damage << " points of damage to " <<character3.getName()  << endl;
     }
 
     cout << "Character details after the attack:" << endl;
@@ -101,7 +102,9 @@ int main() {
             outFile << "Ange has more health than Christa." << endl;
         }
     }
-
+    character1.displayDateTimeOfLastSave();
+    character2.displayDateTimeOfLastSave();
+    character3.displayDateTimeOfLastSave();
     // Close the file 
     if (outFile.is_open()) {
         outFile.close();
