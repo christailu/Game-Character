@@ -1,8 +1,8 @@
 /***************************************************************/
 // Name : Christelle
 //Course : CS 355
-//Assigment 3
-//date : sept 1 2023
+//Assigment 5
+//date : sept 7 2023
 //program description:This program manages characters with various attributes such as name,
 //               max health, current health, attack points, and defense points.
 //                 The program allows characters to engage in battles, take damage,
@@ -13,6 +13,7 @@
 //*****************************************************************/
 #include <iostream>
 #include <fstream>
+#include <ctime>
 #include "GameCharacter.h"
 
 using namespace std;
@@ -29,54 +30,55 @@ GameCharacter::GameCharacter (string Name, int MaxH, int AttackP,int HealthP, in
 	attackPoints = AttackP;
 	defensePoints = DefenseP;
 	isAlive = true;
+	time(lastSaveTime);
 }
 		
 		//getter method for each private member of the class
 		
-// Function name: get_name
+// Function name: getName
 // Function description: Retrieves the name of the GameCharacter.
 // Return Value: string (Name of the character)		
-string GameCharacter::get_name() const
+string GameCharacter::getName() const
 {
 	return name;
 }
 
-// Function name: get_maxHealth
+// Function name: getMaxHealth
 // Function description: Retrieves the maximum health of the GameCharacter.
 // Return Value: int (Maximum health)
-int GameCharacter::get_maxHealth() const
+int GameCharacter::getMaxHealth() const
 {
 	return maxHealth;
 }
 
-// Function name: get_healthPoints
+// Function name: getHealthPoints
 // Function description: Retrieves the current health points of the GameCharacter.
 // Return Value: int (Current health points)
-int GameCharacter::get_healthPoints() const
+int GameCharacter::getHealthPoints() const
 {
 	return healthPoints;
 }
 
-// Function name: get_attackPoints
+// Function name: getAttackPoints
 // Function description: Retrieves the attack points of the GameCharacter.
 // Return Value: int (Attack points)
-int GameCharacter::get_attackPoints() const
+int GameCharacter::getAttackPoints() const
 {
 	return attackPoints;
 }
 
-// Function name: get_defensePoints
+// Function name: getDefensePoints
 // Function description: Retrieves the defense points of the GameCharacter.
 // Return Value: int (Defense points)
-int GameCharacter::get_defensePoints() const
+int GameCharacter::getDefensePoints() const
 {
 	return defensePoints;
 }
 
-// Function name: get_isAlive
+// Function name: getIsAlive
 // Function description: Checks if the GameCharacter is alive.
 // Return Value: bool 
-bool GameCharacter::get_isAlive() const
+bool GameCharacter::getIsAlive() const
 {
 	return isAlive;
 }
@@ -209,6 +211,10 @@ void GameCharacter::loadFromFile(string& filename )
 
 
 //
+void GameCharater::displayDateTimeOfLastSave()
+{
+	cout << "Last Saved ON  "<< ctime(&lastSaveTime);	
+}
 
 // Function name: operator+
 // Function description: Adds two GameCharacter objects and returns a new GameCharacter.
