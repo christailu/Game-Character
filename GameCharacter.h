@@ -26,6 +26,7 @@ class GameCharacter{
 		int attackPoints = 0;
 		int defensePoints =0;
 		bool isAlive;
+		time_t lastSaveTime;
 	
 	public:
 		GameCharacter (string, int, int, int, int, bool);
