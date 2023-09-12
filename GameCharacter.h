@@ -49,7 +49,7 @@ class GameCharacter{
 		int attack(GameCharacter& target);
 		
 		//oveloaded operator
-		bool operator+(const GameCharacter& character);
+		GameCharacter operator+(const GameCharacter& character, const GameCharacter& character2);
 		bool operator<(const GameCharacter& character);
 		bool operator>(const GameCharacter& character);
 		

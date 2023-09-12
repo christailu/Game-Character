@@ -79,13 +79,15 @@ int GameCharacter::attack(GameCharacter& target){
 	return actualDamage;
 }
 
-bool GameCharacter::operator+(const GameCharacter& character){
-	
-	int newMaxHealth = maxHealth + character.maxHealth;
+GameCharacter GameCharacter::operator+(const GameCharacter& character, const GameCharacter& character2 ){
+	int newMaxHealth = character2.maxHealth + character.maxHealth;
 	int newHealthPoints = (healthPoints + character.healthPoints)/2;
 	int newAttackPoints = (attackPoints + character.attackPoints)/2;
 	int newDefensePoints = (defensePoints + character.defensePoints)/2;
-	
+        
+	// TODO: Fit to default constructor.
+	GameCharacter temp(newMaxHealth, ...);
+        return temp;
 }
 
 bool GameCharacter::operator<(const GameCharacter& character){
