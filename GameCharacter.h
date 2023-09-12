@@ -31,6 +31,8 @@ class GameCharacter{
 		int defensePoints;
 		bool isAlive;
 		
+		time_t lastSaveTime;
+		
 	public:	
 	   //constructor
 		GameCharacter(string Name, int maxH, int HealthP, int AttackP, int DefenseP, bool isAlv);
@@ -53,8 +55,8 @@ class GameCharacter{
 		
 		void saveToFile(const string& filename) const;
 		void loadFromFile(const string& filename);
+		void displayDateTimeOfLastSave()const;
 		
-		void displayDateOfTLastSave();
 		
 		
 		

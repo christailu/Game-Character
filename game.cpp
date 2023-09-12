@@ -21,7 +21,7 @@ int main(){
 	GameCharacter character1("Christa", 100, 100, 45, 45, true);
 	GameCharacter character2("Ange", 100, 100, 45, 45, true);
 	GameCharacter char1("Name",0,0,0,0, true);
-	GameCharacter char2("Name", 0,0,0,0, true)
+	GameCharacter char2("Name", 0,0,0,0, true);
 	int damage;
 		
 		//simulate fight between all the fisrt 2 characters
@@ -51,8 +51,8 @@ int main(){
 	char2.loadFromFile("Character2.txt"); 
 	
 	
-	//character1.displayDateTimeOfLastSave();
-	//character2.displayDateTimeOfLastSave(); 
+	character1.displayDateTimeOfLastSave();
+	character2.displayDateTimeOfLastSave(); 
 		
 	return 0;
 }

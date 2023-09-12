@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 #include "GameCharacter.h"
 using namespace std;
 
@@ -28,6 +29,8 @@ GameCharacter::GameCharacter(string Name, int maxH, int HealthP, int AttackP, in
 	attackPoints = AttackP;
 	defensePoints = DefenseP; 
 	isAlv = true;
+	
+	lastSaveTime = time(0);
 }
 		
 		//getters method
@@ -144,4 +147,10 @@ void GameCharacter::loadFromFile(const string& filename){
 		inFile >> defensePoints;
 	}
 
+}
+
+// Method to display the date and time when the character was last saved.
+void GameCharacter::displayDateTimeOfLastSave() const {
+    // Use std::ctime to convert the saved time to a readable format
+    cout << "Character " << name << " was last saved on: " << ctime(&lastSaveTime) << endl;
 }
